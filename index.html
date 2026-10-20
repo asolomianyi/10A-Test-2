@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Sports: діагностувальна робота</title>
+<style>
+:root{--bg:#f6f7fb;--fg:#1c2230;--cd:#fff;--mu:#6b7385;--pr:#2b6cf6;--pl:#e6eeff;--ok:#1f9d55;--no:#d64545;--bd:#d9deea;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10141c;--fg:#e8ecf5;--cd:#1a2030;--mu:#97a0b5;--pr:#6b9bff;--pl:#22315a;--ok:#4cc982;--no:#ff7a7a;--bd:#2e374c;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#10141c;--fg:#e8ecf5;--cd:#1a2030;--mu:#97a0b5;--pr:#6b9bff;--pl:#22315a;--ok:#4cc982;--no:#ff7a7a;--bd:#2e374c;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+input{-webkit-user-select:text;user-select:text}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:720px;margin:0 auto;padding:16px}
+.card,.q{background:var(--cd);border:1px solid var(--bd);border-radius:14px;padding:16px;margin:12px 0}
+h1{font-size:1.6rem;margin:.2em 0}h2{font-size:1.3rem;margin:.3em 0}h4{margin:14px 0 4px}
+.mu,.ins{color:var(--mu)}.bar{display:flex;justify-content:space-between;color:var(--mu);font-size:.9rem}
+.prog{height:6px;background:var(--bd);border-radius:6px;overflow:hidden;margin:6px 0 14px}.prog i{display:block;height:100%;background:var(--pr)}
+button{font:inherit;color:inherit;cursor:pointer}
+.o{display:block;width:100%;text-align:left;margin:6px 0;padding:11px 12px;min-height:44px;border:1px solid var(--bd);border-radius:10px;background:var(--cd)}
+.w{display:inline-block;margin:3px;padding:8px 10px;min-height:42px;border:1px solid var(--bd);border-radius:9px;background:var(--cd)}
+.s{background:var(--pl);border-color:var(--pr);font-weight:600}
+.nn{display:block;margin:8px 3px 0}
+.pb{display:block;width:100%;margin-top:16px;padding:14px;border:0;border-radius:12px;background:var(--pr);color:#fff;font-weight:700;min-height:48px}
+.pb:disabled{opacity:.45;cursor:not-allowed}
+.bl{display:inline-block;width:3.2em;border-bottom:2px solid var(--fg);margin:0 2px}
+input{width:100%;padding:12px;border:1px solid var(--bd);border-radius:10px;background:var(--cd);color:var(--fg);font:inherit}
+.row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--bd)}
+.tot{text-align:center;padding-top:14px}.tot strong{display:block;font-size:2.6rem;color:var(--pr)}
+.sm{font-size:.82rem}.sm ul{padding-left:0;list-style:none;margin:0}.sm li{padding:6px 0;border-bottom:1px solid var(--bd)}
+.y{color:var(--ok)}.x{color:var(--no)}.err{color:var(--no);min-height:1.4em}
+body{background:linear-gradient(180deg,var(--pl),var(--bg) 280px) no-repeat,var(--bg)}
+main{padding:18px 16px 28px}
+.card,.q{box-shadow:0 2px 10px rgba(20,30,60,.07);border-radius:16px}
+.hero{text-align:center;padding:10px 0}.hero span{font-size:3rem}
+.dots{display:flex;gap:6px;margin:8px 0 14px}.dots i{flex:1;height:8px;border-radius:8px;background:var(--bd)}.dots .dn{background:var(--ok)}.dots .cu{background:var(--pr)}
+.hint{font-size:.82rem;color:var(--mu);margin:2px 0 0}
+.qt{font-size:1.05rem;margin:0 0 8px}
+.nm,.bd{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--pr);color:#fff;font-size:.85rem;margin-right:6px}
+.bd{width:22px;height:22px;font-size:.8rem}
+.o{display:flex;align-items:center;gap:10px;border-width:2px}.o:active{transform:scale(.99)}
+.lt{flex:none;width:28px;height:28px;border-radius:8px;background:var(--pl);display:inline-flex;align-items:center;justify-content:center;font-size:.85rem}
+.s .lt{background:var(--pr);color:#fff}
+.sen{font-size:1.1rem;margin:0 0 4px}
+.st{margin:14px 0 6px;font-weight:600}.st small{display:block;font-weight:400;color:var(--mu)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:8px}.two .o{justify-content:center;text-align:center}
+.ex{background:var(--pl);border-radius:12px;padding:10px 12px;margin-top:10px;font-size:.9rem}
+.sb{position:sticky;bottom:0;padding:10px 0 calc(8px + env(safe-area-inset-bottom,0px));background:linear-gradient(transparent,var(--bg) 35%)}.sb .pb{margin-top:0}
+.row{flex-wrap:wrap;align-items:center}.rb{display:block;width:100%;height:6px;border-radius:6px;background:var(--bd);margin-top:6px;overflow:hidden}.rb i{display:block;height:100%;background:var(--pr)}
+.w{font-size:1rem}
+@media(min-width:700px){main{padding-top:32px}}
+.em{font-size:2.6rem;letter-spacing:6px}.em i{font-style:normal;display:inline-block;animation:bn 1.8s ease-in-out infinite}.em i:nth-child(2){animation-delay:.2s}.em i:nth-child(3){animation-delay:.4s}.em i:nth-child(4){animation-delay:.6s}
+@keyframes bn{50%{transform:translateY(-10px)}}
+@media(prefers-reduced-motion:reduce){.em i{animation:none}}
+.trk{max-width:420px;margin:0 auto 8px}
+.ln{--f:calc(100% - 4.6rem);position:relative;height:2.3rem;border-bottom:2px dashed var(--bd);margin:2px 0}
+.fl{position:absolute;right:0;bottom:2px;font-style:normal;font-size:1.5rem}
+.rn{position:absolute;left:0;bottom:0;font-size:1.7rem;animation:6s ease-in-out infinite}
+.rn b{display:inline-block;font-weight:400;animation:hp .35s ease-in-out infinite alternate}
+.r1{animation-name:r1}.r2{animation-name:r2}.r3{animation-name:r3}
+@keyframes r1{0%{left:0}90%,100%{left:var(--f)}}
+@keyframes r2{0%{left:0}70%,100%{left:var(--f)}}
+@keyframes r3{0%{left:0}80%,100%{left:var(--f)}}
+@keyframes hp{to{transform:translateY(-4px)}}
+@media(prefers-reduced-motion:reduce){.rn,.rn b{animation:none}}
+.rn b.rl{animation:rl .7s linear infinite}@keyframes rl{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.rn b.rl{animation:none}}
+.ln{--f:calc(100% - 2.4rem)}.fl{right:auto;left:0}
+@keyframes r1{0%{left:var(--f)}90%,100%{left:2.6rem}}
+@keyframes r2{0%{left:var(--f)}70%,100%{left:2.6rem}}
+@keyframes r3{0%{left:var(--f)}80%,100%{left:2.6rem}}
+@media(prefers-reduced-motion:reduce){.rn{left:var(--f)}}
+</style></head><body><main id="app"></main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+const TK=[
+{h:"Task 1: Sports, Equipment, Venues & Human Anatomy",i:"Read each sentence and choose the correct option (A, B, C, or D) to complete it.",q:[
+["High-intensity training like sprinting can cause severe tightness in your ___ if you do not stretch properly beforehand.",["heels","calves","wrists","elbows"],1],
+["The Olympic athlete broke the world record in ___ after successfully clearing the 6-meter bar.",["shot-putting","weightlifting","pole vaulting","diving"],2],
+["Due to heavy rainfall overnight, the referee inspected the football ___ to ensure it was safe for the players.",["court","pitch","rink","course"],1],
+["She was taken to the hospital with a suspected fracture in her ___ after falling awkwardly on her hand during the gymnastics routine.",["wrist","sole","toe","heel"],0],
+["Ice hockey players must always wear a protective ___ and padded gear to minimize the risk of serious injuries.",["net","paddle","helmet","stick"],2],
+["Professional cyclists must maintain core stability to reduce strain on their ___ during long races spent bent over the handlebars.",["lower back","toes","forehead","ankles"],0],
+["The tennis match was temporarily suspended because the ball struck the top of the ___ and rolled out of bounds.",["racket","net","bat","post"],1],
+["___ requires a balance of explosive strength, technique, and core stability to lift heavy barbells safely overhead.",["Track-and-field","Gymnastics","Weightlifting","Wrestling"],2],
+["After landing awkwardly on the court during the basketball game, the doctor confirmed he had badly sprained his right ___.",["ankle","forearm","thigh","shin"],0],
+["Figure skaters spend countless hours practicing complex jumps on the frozen surface of the ___.",["pool","course","rink","track"],2]]},
+{h:"Task 2: Conditionals I & II",i:"Read each sentence and choose the correct option (A, B, C, or D) that fills in both blanks.",q:[
+["If our team ___ the match on Sunday, we ___ for the national championships.",["will win / will qualify","won / will qualify","wins / will qualify","would win / qualify"],2],
+["If I ___ a professional swimmer, I ___ in the Olympic pool every morning.",["am / will train","were / would train","will be / train","were / will train"],1],
+["What ___ you ___ if a player severely sprained their ankle during the first half?",["will / do","do / do","would / do","did / will do"],2],
+["Unless the weather ___, the referee ___ the outdoor tennis tournament tomorrow.",["improves / will cancel","improves / would cancel","will improve / cancels","improved / will cancel"],0],
+["If she ___ her gymnastics routine more consistently, her performance ___ much smoother.",["practiced / will be","practiced / would be","will practice / is","would practice / would be"],1],
+["If you ___ high-quality running shoes, you ___ the risk of serious injuries.",["bought / will reduce","buy / will reduce","will buy / reduce","would buy / reduced"],1],
+["I ___ that heavy barbell if I ___ you; your lower back needs time to heal.",["won’t lift / am","wouldn’t lift / were","don’t lift / will be","wouldn’t lift / would be"],1],
+["As long as he strictly ___ his rehabilitation program, his knee ___ fully recover.",["followed / will","will follow / will","follows / will","follow / can"],2],
+["If our school ___ a larger budget for new gear, we ___ upgrade the basketball court this term.",["has / would","had / would","will have / will","had / will"],1],
+["If the goalkeeper ___ faster, the opponent ___ another point before halftime.",["doesn’t react / will score","didn’t react / will score","won’t react / scores","isn’t reacting / scores"],0]]},
+{h:"Task 3: Gerund or Infinitive",i:"Choose the correct form to complete each sentence (A or B).",q:[
+["I enjoy ___ (play) football with my friends at the stadium on Sundays.",["to play","playing"],1],
+["My younger brother decided ___ (join) the school basketball team this year.",["to join","joining"],0],
+["She wants ___ (buy) a new pair of running shoes before the marathon.",["to buy","buying"],0],
+["They finished ___ (clean) the sports hall right after the match.",["to clean","cleaning"],1],
+["He promised ___ (help) the coach organize the equipment for the race.",["to help","helping"],0],
+["Do you feel like ___ (go) to the swimming pool after school today?",["to go","going"],1],
+["We need ___ (wear) a protective helmet when cycling on the street.",["to wear","wearing"],0],
+["I don’t mind ___ (run) in the rain when it is warm outside.",["to run","running"],1],
+["They are planning ___ (visit) the new ice rink this Saturday.",["visiting","to visit"],1],
+["My best friend hopes ___ (win) the first place in the tennis tournament.",["to win","winning"],0]]},
+{f:1,h:"Task 4: Find and correct the mistake",i:"Decide if each sentence has a mistake. If it does, find the wrong word and choose the correct one.",q:[
+["Runners often get blisters on their palms from tight shoes.",[6,6],["ears","feet","wrists","shoulders"],1],
+["If it rains tomorrow, the match would be postponed.",[6,7],["will be","was","were","being"],0],
+["Goalkeepers wear special gloves to protect their hands.",null,["wears","wore","wearing","to wear"],0],
+["She refused playing in the final match because she was ill.",[2,2],["play","played","to play","to playing"],2],
+["Golfers play on a large court with eighteen holes.",[5,5],["rink","pool","track","course"],3],
+["If I had more free time, I will join the swimming club.",[7,8],["would join","joined","join","joining"],0],
+["He keeps training even when he feels tired.",null,["trains","trained","to train","train"],0],
+["Tennis players hit the ball with a bat.",[7,7],["glove","racket","club","stick"],1],
+["He avoids to eat fast food before a big match.",[2,3],["eat","ate","eating","to eating"],2],
+["If our coach gives us a day off, we will go swimming together.",null,["gives","gave","giving","given"],0]]}];
+const $=id=>document.getElementById(id),app=$("app");
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const K=e=>"sportsdiag:"+e,ld=e=>{try{return JSON.parse(localStorage.getItem(K(e)))}catch(_){return null}};
+const sv=()=>{try{localStorage.setItem(K(S.e),JSON.stringify(S))}catch(_){}};
+let S=null;
+const cl=s=>s.replace(/[.,]$/,"");
+const seg=(q,k)=>q[1]&&k>=q[1][0]&&k<=q[1][1]?q[0].split(" ").slice(q[1][0],q[1][1]+1).join(" "):q[0].split(" ")[k];
+const done=(t,i)=>{const a=S.a[t][i];return TK[t].f?!!a&&(a.w!=null&&(a.w===-1||a.c!=null)):a!=null};
+function ok(t,i){const q=TK[t].q[i],a=S.a[t][i];if(!TK[t].f)return a===q[2];if(!a)return false;if(!q[1])return a.w===-1;return a.w>=q[1][0]&&a.w<=q[1][1]&&a.c===q[3]}
+const pts=t=>Math.round(TK[t].q.filter((_,i)=>ok(t,i)).length*11/10);
+function info(t,i){const T=TK[t],q=T.q[i],a=S.a[t][i];
+ if(!T.f)return[q[0].replace(/___/g,"____"),a==null?"(no answer)":q[1][a],q[1][q[2]]];
+ return[q[0],!a?"(no answer)":a.w===-1?"No mistake":'"'+cl(seg(q,a.w))+'" -> '+(a.c==null?"?":q[2][a.c]),q[1]?'"'+cl(seg(q,q[1][0]))+'" -> '+q[2][q[3]]:"No mistake"]}
+function mq(q,i,a){return`<div class=q><p class=qt><b class=nm>${i+1}</b> ${esc(q[0]).replace(/___/g,'<span class=bl></span>')}</p>`+q[1].map((o,j)=>`<button class="o${a===j?" s":""}" data-a=o data-i=${i} data-j=${j}><b class=lt>${"ABCD"[j]}</b><span>${esc(o)}</span></button>`).join("")+"</div>"}
+function fq(q,i,a){const tk=q[0].split(" ");
+ let h=`<div class=q><p><b>${i+1}.</b></p><div>`+tk.map((w,k)=>`<button class="w${a&&a.w===k?" s":""}" data-a=w data-i=${i} data-k=${k}>${esc(w)}</button>`).join("")+`</div><button class="w nn${a&&a.w===-1?" s":""}" data-a=w data-i=${i} data-k=-1>Помилок немає</button>`;
+ if(a&&a.w>=0)h+=`<p class=mu>Replace “${esc(cl(seg(q,a.w)))}” with:</p>`+q[2].map((o,j)=>`<button class="o${a.c===j?" s":""}" data-a=c data-i=${i} data-c=${j}>${"ABCD"[j]}) ${esc(o)}</button>`).join("");
+ return h+"</div>"}
+const UK=["Прочитайте кожне речення й оберіть правильний варіант (A, B, C або D).","Прочитайте кожне речення й оберіть варіант, який підходить в обидва пропуски.","Оберіть правильну форму дієслова (A або B).","Для кожного речення вирішіть, чи є в ньому помилка. Якщо є, знайдіть неправильне слово й оберіть правильне."];
+const EX=`<div class=ex><b>Example / Приклад</b><br>“She go to school every day.”<br>1) ✗ Є помилка → 2) tap “go” → 3) choose “goes”.</div>`;
+function fq2(q,i,a){const tk=q[0].split(" "),m=a?(a.w===-1?0:1):null,D=` data-i=${i}`;
+ let h=`<div class=q><p class=sen><b class=nm>${i+1}</b> ${esc(q[0])}</p><p class=st><span class=bd>1</span>Is there a mistake?<small>Чи є помилка в реченні?</small></p><div class=two><button class="o${m===0?" s":""}" data-a=w${D} data-k=-1>✓ Помилок немає</button><button class="o${m===1?" s":""}" data-a=m${D}>✗ Є помилка</button></div>`;
+ if(m===1){h+=`<p class=st><span class=bd>2</span>Tap the wrong word.<small>Натисніть на слово з помилкою.</small></p><div>`+tk.map((w,k)=>`<button class="w${a.w===k?" s":""}" data-a=w${D} data-k=${k}>${esc(w)}</button>`).join("")+"</div>";
+  if(a.w!=null)h+=`<p class=st><span class=bd>3</span>Choose the correct word to replace “${esc(cl(seg(q,a.w)))}”.<small>Оберіть правильне слово.</small></p>`+q[2].map((o,j)=>`<button class="o${a.c===j?" s":""}" data-a=c${D} data-c=${j}><b class=lt>${"ABCD"[j]}</b><span>${esc(o)}</span></button>`).join("")}
+ return h+"</div>"}
+function runners(){let ok=false;try{const c=document.createElement("canvas").getContext("2d");c.font="32px sans-serif";ok=c.measureText("\ud83c\udfc3\u200d\u27a1\ufe0f").width<c.measureText("\ud83c\udfc3").width*1.5}catch(_){}
+ document.querySelectorAll(".rn b").forEach((b,k)=>{if(ok)b.textContent="\ud83c\udfc3"+["\ud83c\udffb","\ud83c\udffd","\ud83c\udfff"][k]+"\u200d\u27a1\ufe0f";else{b.textContent=["\u26bd","\ud83c\udfc0","\ud83c\udfbe"][k];b.className="rl"}})}
+function draw(){
+ if(!S){app.innerHTML=`<div class=hero><div class=trk><div class=ln><span class="rn r1"><b>🏃</b></span><i class=fl>🏁</i></div><div class=ln><span class="rn r2"><b>🏃‍♀️</b></span><i class=fl>🏁</i></div><div class=ln><span class="rn r3"><b>🏃‍♂️</b></span><i class=fl>🏁</i></div></div><h1>Вітаємо!</h1></div><p>Сьогодні ви проходитимете діагностувальну роботу з англійської мови на тему «Sports».</p><div class=card><b>Коротка інструкція</b><ul><li>Тест можна пройти лише 1 раз. Реєстрація на тест за електронною адресою.</li><li>Тест містить 4 завдання, у кожному завданні 10 питань.</li><li>Кожне завдання оцінюється в 11 балів.</li><li>Підсумкова оцінка — це середня оцінка з усіх 4 завдань.</li></ul></div><label for=nm><b>Ім’я та прізвище</b> <small class=mu>(англійською мовою)</small></label><input id=nm type=text autocomplete=off autocapitalize=words placeholder="Ivan Petrenko" style="margin:6px 0 14px"><label for=em><b>Ваша електронна адреса</b></label><input id=em type=email inputmode=email autocomplete=off placeholder="name@example.com"><p class=err id=er></p><button class=pb data-a=go>Почати тест</button>`;return}
+ if(S.done)return res();
+ const t=S.t,T=TK[t],n=T.q.filter((_,i)=>done(t,i)).length;
+ app.innerHTML=`<div class=bar><span>Завдання ${t+1} з 4</span><span>Виконано: ${n}/10</span></div><div class=dots>${[0,1,2,3].map(k=>`<i class="${k<t?"dn":k===t?"cu":""}"></i>`).join("")}</div><div class=card><h2>${T.h}</h2><p class=ins>${T.i}</p><p class=hint>${UK[t]}</p>${T.f?EX:""}</div>`+T.q.map((q,i)=>T.f?fq2(q,i,S.a[t][i]):mq(q,i,S.a[t][i])).join("")+`<div class=sb><button class=pb data-a=nx ${n<10?"disabled":""}>${t<3?"Далі":"Отримати результати"}</button>${n<10?`<p class=hint>Дайте відповідь на всі питання, щоб продовжити (залишилось: ${10-n}).</p>`:""}</div>`}
+function res(){const P=TK.map((_,t)=>pts(t)),tot=Math.round(P.reduce((a,b)=>a+b,0)/4);
+ let h=`<h2>Ваш результат</h2><p class=mu>${esc(S.n||"")}</p><div class=card>`+P.map((p,t)=>`<div class=row><span>Завдання ${t+1}</span><b>${p} / 11</b><u class=rb><i style="width:${p/11*100}%"></i></u></div>`).join("")+`<div class=tot>Загальна оцінка<strong>${tot} / 11</strong></div><div class=sm>`;
+ TK.forEach((T,t)=>{h+=`<h4>${T.h}</h4><ul>`+T.q.map((_,i)=>{const[s,u,c]=info(t,i),g=ok(t,i);return`<li><span class=${g?"y":"x"}>${g?"✓":"✗"}</span> ${i+1}. ${esc(s)}<br>Ваша відповідь: ${esc(u)}${g?"":`<br>Правильна відповідь: <span class=y>${esc(c)}</span>`}</li>`}).join("")+"</ul>"});
+ app.innerHTML=h+`</div></div><button class=pb data-a=pdf>Відправити результат вчителю у Class</button><p class=mu id=msg>Натисніть кнопку, збережіть PDF і прикріпіть його до завдання в Google Classroom.</p>`}
+const msg=s=>{const m=$("msg");if(m)m.textContent=s};
+async function pdf(){const J=window.jspdf&&window.jspdf.jsPDF;if(!J)return msg("Не вдалося завантажити модуль PDF. Перевірте інтернет і спробуйте ще раз.");
+ const d=new J({unit:"mm",format:"a4"});let y=15;const A=s=>String(s).replace(/[’‘]/g,"'").replace(/[“”]/g,'"');
+ const L=(s,z=10,b)=>{d.setFont("helvetica",b?"bold":"normal");d.setFontSize(z);d.splitTextToSize(A(s),180).forEach(l=>{if(y>282){d.addPage();y=15}d.text(l,15,y);y+=z*.5+1.5})};
+ const P=TK.map((_,t)=>pts(t)),tot=Math.round(P.reduce((a,b)=>a+b,0)/4);
+ L("Diagnostic Test: Sports",16,1);L("Student: "+(S.n||"-"));L("Student email: "+S.e);L("Date: "+new Date().toISOString().slice(0,10));y+=3;
+ L("Total grade: "+tot+" / 11",14,1);P.forEach((p,t)=>L("Task "+(t+1)+": "+p+" / 11"));
+ TK.forEach((T,t)=>{y+=4;L(T.h,11,1);T.q.forEach((_,i)=>{const[s,u,c]=info(t,i),g=ok(t,i);L((g?"[OK] ":"[X] ")+(i+1)+". "+s,9);L("   Answer: "+u+(g?"":"   |   Correct: "+c),9)})});
+ const fn="sports-test-"+S.e.split("@")[0].replace(/[^a-z0-9]/gi,"_")+".pdf";let dl=null;
+ try{dl=window.claude?await window.claude.use("downloads"):null}catch(_){}
+ if(dl){try{await dl.save({filename:fn,data:d.output("blob")});msg("PDF збережено. Прикріпіть його до завдання в Google Classroom.")}catch(e){msg(e&&e.code==="declined"?"Збереження скасовано. Натисніть кнопку ще раз.":"Не вдалося зберегти PDF. Спробуйте ще раз.")}}
+ else{try{d.save(fn);msg("PDF збережено. Прикріпіть його до завдання в Google Classroom.")}catch(_){msg("Не вдалося зберегти PDF.")}}}
+function start(){const nm=$("nm").value.trim().replace(/\s+/g," "),e=$("em").value.trim().toLowerCase();
+ if(!/^[A-Za-z][A-Za-z’'.-]*( [A-Za-z][A-Za-z’'.-]*)+$/.test(nm))return $("er").textContent="Введіть ім’я та прізвище англійською мовою (наприклад, Ivan Petrenko).";
+ if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e))return $("er").textContent="Введіть правильну електронну адресу.";
+ S=ld(e)||{e,n:nm,t:0,done:false,a:TK.map(()=>Array(10).fill(null))};sv();draw()}
+app.onclick=e=>{const b=e.target.closest("button");if(!b)return;const d=b.dataset,i=+d.i;
+ if(d.a==="go")return start();if(d.a==="pdf")return pdf();if(!S)return;const t=S.t;
+ if(d.a==="o")S.a[t][i]=+d.j;else if(d.a==="w")S.a[t][i]={w:+d.k,c:null};else if(d.a==="c")S.a[t][i].c=+d.c;else if(d.a==="m"){const z=S.a[t][i];if(!z||z.w===-1)S.a[t][i]={w:null,c:null}}
+ else if(d.a==="nx"){if(t<3)S.t++;else S.done=true;sv();draw();return scrollTo(0,0)}else return;
+ sv();draw()};
+app.onkeydown=e=>{if(e.key==="Enter"&&e.target.id==="em")start()};
+["copy","cut","contextmenu","selectstart","dragstart"].forEach(n=>document.addEventListener(n,e=>{if(e.target.tagName!=="INPUT")e.preventDefault()}));
+document.addEventListener("keydown",e=>{if((e.ctrlKey||e.metaKey)&&"cxaspu".includes(e.key.toLowerCase())&&e.target.tagName!=="INPUT")e.preventDefault()});
+draw();
+</script></body></html>
